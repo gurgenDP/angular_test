@@ -1,0 +1,17 @@
+<app-header></app-header>
+<div class="main">
+    <mat-sidenav-container class="example-container">
+        <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
+            (closed)="events.push('close!')">
+            <div class="notes-section">
+
+            </div>
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+            <p>
+                <mat-checkbox [(ngModel)]="opened">sidenav.opened</mat-checkbox>
+            </p>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>
