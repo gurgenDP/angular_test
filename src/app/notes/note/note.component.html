@@ -1,0 +1,8 @@
+<div class="note-section" *ngIf="note">
+    <div class="title-section">
+        <h4>{{note.title}}</h4>
+        <p>{{note.createdDate | date:'medium'}}</p>
+    </div>
+    <mat-icon aria-hidden="false">keyboard_arrow_right</mat-icon>
+</div>
+<mat-divider></mat-divider>

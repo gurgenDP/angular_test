@@ -1,1 +1,3 @@
-<p>notes-list works!</p>
+<div class="single-not" *ngFor="let note of notes">
+   <app-note id="{{note.id}}"></app-note>
+</div>

@@ -10,13 +10,17 @@ import {
   MatToolbarModule,
   MatIconModule,
   MatSidenavModule,
-  MatCheckboxModule
+  MatCheckboxModule,
+  MatDividerModule
  } from '@angular/material';
 import { NotesComponent } from './notes/notes.component';
 import { HeaderComponent } from './notes/header/header.component';
 import { NotesListComponent } from './notes/notes-list/notes-list.component';
 import { NoteEditComponent } from './notes/note-edit/note-edit.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { NoteComponent } from './notes/note/note.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +28,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     HeaderComponent,
     NotesListComponent,
     NoteEditComponent,
+    NoteComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,6 +41,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     MatIconModule,
     MatSidenavModule,
     MatCheckboxModule,
+    MatDividerModule,
     FormsModule
   ],
   providers: [],

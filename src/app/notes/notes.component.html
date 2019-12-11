@@ -4,14 +4,12 @@
         <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
             (closed)="events.push('close!')">
             <div class="notes-section">
-
+                <app-notes-list></app-notes-list>
             </div>
         </mat-sidenav>
 
         <mat-sidenav-content>
-            <p>
-                <mat-checkbox [(ngModel)]="opened">sidenav.opened</mat-checkbox>
-            </p>
+
         </mat-sidenav-content>
     </mat-sidenav-container>
 </div>

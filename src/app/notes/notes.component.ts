@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NotesService } from '../service/notes-service';
 
 @Component({
   selector: 'app-notes',
@@ -6,15 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./notes.component.css']
 })
 export class NotesComponent implements OnInit {
-  notes: Note[] = [
 
-  ];  
-  
+
   opened: boolean;
 
-  constructor() { }
+  constructor(private notesService: NotesService) { }
 
   ngOnInit() {
+    this.opened = this.notesService.sidenavOpened;
   }
 
 }
