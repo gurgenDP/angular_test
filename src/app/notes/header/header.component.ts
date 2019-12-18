@@ -14,8 +14,7 @@ export class HeaderComponent implements OnInit {
   }
 
   tooggleMenu() {
-    alert('dwdwd');
-    this.notesService.sidenavOpened = !this.notesService.sidenavOpened;
+    this.notesService.tooggleSidenav();
   }
 
 }

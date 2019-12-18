@@ -1,1 +1,19 @@
-<p>note-edit works!</p>
+<div class="form" *ngIf="selectedNote">
+    <h6>Title</h6>
+    <mat-form-field>
+        <input [(ngModel)]="selectedNote.title" matInput placeholder="Title">
+    </mat-form-field>
+
+    <h6>Description</h6>
+    <mat-form-field class="description">
+        <textarea [(ngModel)]="selectedNote.description"  #description matInput placeholder="Description" maxlength="150"></textarea>
+        <mat-hint align="end">{{description.value.length}} / 150</mat-hint>
+    </mat-form-field>
+
+    <button
+     mat-raised-button 
+     color="primary" 
+     class="save-button"
+     (click)="save()"
+     >SAVE</button>
+</div>

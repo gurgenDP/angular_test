@@ -1,15 +1,14 @@
 <app-header></app-header>
 <div class="main">
     <mat-sidenav-container class="example-container">
-        <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
-            (closed)="events.push('close!')">
+        <mat-sidenav #sidenav mode="side" [(opened)]="opened">
             <div class="notes-section">
                 <app-notes-list></app-notes-list>
             </div>
         </mat-sidenav>
 
         <mat-sidenav-content>
-
+            <app-note-edit></app-note-edit>
         </mat-sidenav-content>
     </mat-sidenav-container>
 </div>

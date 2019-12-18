@@ -17,4 +17,8 @@ export class NotesListComponent implements OnInit {
     this.notes = this.notesService.notes;
   }
 
+  selectNote(id: string) {
+    this.notesService.selectNote(id);
+  }
+
 }
