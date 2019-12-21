@@ -15,7 +15,7 @@ export class NoteComponent implements OnInit, AfterViewInit {
   constructor(private notesService: NotesService) { }
 
   ngOnInit() {
-
+    console.log('reinit');
   }
 
   ngAfterViewInit() {

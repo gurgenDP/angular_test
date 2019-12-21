@@ -16,4 +16,12 @@
      class="save-button"
      (click)="save()"
      >SAVE</button>
+    <button
+    *ngIf="!ntS.isNewNote"
+    style="margin-left: 20px;"
+     mat-raised-button 
+     color="warn" 
+     class="save-button"
+     (click)="delete()"
+     >DELETE</button>
 </div>

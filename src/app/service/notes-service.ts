@@ -11,8 +11,12 @@ export class NotesService {
 
     sidenavOpenedSubject = new Subject<boolean>();
     selectedNoteSubject = new Subject<string>();
+    notesSubject = new Subject<Note[]>();
+    isNewNoteSubject = new Subject<boolean>();
 
     selectedNote: string;
+
+    isNewNote: boolean = false;
 
     notes: Note[] = [
         {
@@ -41,20 +45,26 @@ export class NotesService {
             }
         }
 
+        if (!findNote) {
+            return null;
+        }
+
         return JSON.parse(JSON.stringify(findNote));
     }
 
     saveNote(note: Note) {
-        let findNote: Note;
-
+        let index: number = 0;
         for (let n of this.notes) {
             if (n.id == note.id) {
-                findNote = n;
                 break;
             }
+
+            index++;
         }
 
-        findNote = note;
+        this.notes[index] = note;
+
+        this.notesSubject.next(this.notes);
     }
 
     tooggleSidenav() {
@@ -65,7 +75,34 @@ export class NotesService {
 
     selectNote(id: string) {
         this.selectedNote = id;
+        this.isNewNote = false;
 
         this.selectedNoteSubject.next(this.selectedNote);
+    }
+
+    closeForm() {
+        this.selectedNote = undefined;
+        this.selectedNoteSubject.next(this.selectedNote);
+    }
+
+    newNote() {
+        this.isNewNote = true;
+        this.isNewNoteSubject.next(true);
+    }
+
+    deleteNote(note: Note) {
+        let index: number = 0;
+        for (let n of this.notes) {
+            if (n.id == note.id) {
+                break;
+            }
+
+            index++;
+        }
+
+        if (index < this.notes.length) {
+            this.notes.splice(index, 1); 
+        }
+
     }
 }

@@ -14,14 +14,35 @@ export class NoteEditComponent implements OnInit {
   selectedNote: Note;
 
   ngOnInit() {
-    let selectedId: string = this.ntS.selectedNote;
+    if (this.ntS.isNewNote) {
+      this.selectedNote = {
+        id: new Date().getTime().toString(),
+        title: '',
+        description: '',
+        createdDate: new Date()
+      };
 
-    if (selectedId) {
-      this.selectedNote = this.ntS.getNoteById(selectedId);
+    } else {
+      let selectedId: string = this.ntS.selectedNote;
+
+      if (selectedId) {
+        this.selectedNote = this.ntS.getNoteById(selectedId);
+      }
     }
 
     this.ntS.selectedNoteSubject.subscribe((value) => {
       this.selectedNote = this.ntS.getNoteById(value);
+    });
+
+    this.ntS.isNewNoteSubject.subscribe((isNew) => {
+      if (isNew) {
+        this.selectedNote = {
+          id: new Date().getTime().toString(),
+          title: '',
+          description: '',
+          createdDate: new Date()
+        };
+      }
     });
   }
 
@@ -40,6 +61,15 @@ export class NoteEditComponent implements OnInit {
       }
 
       this.ntS.saveNote(note);
+      this.ntS.closeForm();
+
+    }
+  }
+
+  delete() {
+    if (!this.ntS.isNewNote) {
+      this.ntS.deleteNote(this.selectedNote);
+      this.ntS.closeForm();
     }
   }
 }

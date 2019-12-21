@@ -17,4 +17,7 @@ export class HeaderComponent implements OnInit {
     this.notesService.tooggleSidenav();
   }
 
+  newNote() {
+    this.notesService.newNote();
+  }
 }

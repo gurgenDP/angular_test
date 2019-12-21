@@ -5,7 +5,9 @@
         </button>
         <span>Notes App</span>
         <span class="fill-remaining-space"></span>
-        <button mat-icon-button>
+        <button 
+        (click)="newNote()"
+        mat-icon-button>
             <mat-icon>add</mat-icon>
         </button>
     </mat-toolbar-row>
